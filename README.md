@@ -35,6 +35,29 @@ BagTracker is a premium, high-performance, mobile-first application built for di
 *   **Haptic Feedback:** Tactile native device feedback for critical UI interactions, providing a premium app feel.
 *   **Native Dark Mode:** A sleek, high-contrast dark-mode interface meticulously designed for maximum visibility in bright sunlight on the course.
 *   **100% Offline Capable:** Built on Capacitor and SQLite (`capacitor-sqlite`), all your data lives on your device. Zero cell service required on remote courses.
+## 📸 Screenshots
+
+*(Replace the placeholder links below with actual screenshots of the app running on a mobile device)*
+
+<div align="center">
+  <img src="https://via.placeholder.com/300x600.png?text=Bags+Dashboard" width="30%" alt="Bags Dashboard">
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://via.placeholder.com/300x600.png?text=Catalog+Search" width="30%" alt="Catalog Search">
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://via.placeholder.com/300x600.png?text=Rangefinder" width="30%" alt="Rangefinder">
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://via.placeholder.com/300x600.png?text=Throw+Logger" width="30%" alt="Throw Logger">
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://via.placeholder.com/300x600.png?text=Custom+Courses" width="30%" alt="Custom Courses">
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://via.placeholder.com/300x600.png?text=Live+Scorekeeper" width="30%" alt="Live Scorekeeper">
+</div>
+
+---
 
 ## 🛠️ Technology Stack
 *   **Framework:** Next.js 16 (App Router, Static Export)
