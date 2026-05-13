@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BagTracker: Offline-First Disc Golf Companion
 
-## Getting Started
+BagTracker is a premium, high-performance, mobile-first application built for disc golfers. Designed to work completely offline, it combines a massive 3,000+ disc database with advanced tactical tools including a GPS rangefinder, custom shot logging, dynamic flight visualization, and offline scorekeeping.
 
-First, run the development server:
+## 🚀 Core Features
 
+### 🎒 Advanced Disc Management & Catalog
+*   **Global Offline Catalog:** Search and filter a comprehensive database of over 3,000 discs with official manufacturer flight numbers (Speed, Glide, Turn, Fade).
+*   **Multi-Bag Support:** Create customized bags for different scenarios (e.g., "Tournament Bag", "Field Work", "Glow Round").
+*   **Deep Customization:** Track exact plastic types, weights, colors, and personalized notes for every disc you own.
+*   **Move & Copy:** Seamlessly transfer discs between bags or duplicate them for quick management.
+*   **Disc Photography:** Take and attach real photos to your discs for instant visual identification.
+
+### 🎯 Tactical Rangefinder
+*   **GPS Precision:** Utilize device location services to measure exact distances on the course.
+*   **Interactive Target Plotting:** Manually drop a "Landing" marker on the satellite map to visualize your target line and calculate remaining distances to the basket.
+*   **Tactical HUD:** A clean, responsive heads-up display showing your bearing, accuracy, and distance to the target in real-time.
+
+### 🥏 Professional Throw Logger
+*   **Dynamic Flight Visualization:** Automatically generates mathematical spline-based flight paths based on a disc's specific flight numbers and physics.
+*   **Manual Path Sketching:** Use the interactive "Draw Free" or "Edit Points" canvas to manually map the exact flight path of your throw.
+*   **Shot Metadata:** Tag every throw with specific release shapes (Hyzer, Flat, Anhyzer), throw styles (RHBH, RHFH, etc.), and distance.
+*   **Environmental Tracking:** Log detailed conditions affecting your shot, including wind (headwind, tailwind, crosswind) and elevation (uphill, downhill).
+
+### ⛳ Custom Course System & Scorekeeper
+*   **Build Your Local Course:** Create completely custom offline course layouts without relying on a global server.
+*   **Hole-by-Hole Details:** Set specific pars and distances for every single hole on your custom layout.
+*   **Cover Photos:** Add unique cover photos to your courses to make your list visually stunning and personalized.
+*   **Live Score Tracking:** Record scores stroke-by-stroke during your round with real-time calculations against par.
+*   **Historical Stats:** View a history of your past rounds played at specific courses, tracking your best scores over time.
+
+### ⚡ Power User Features
+*   **Real-Time Weather Integration:** Pulls local wind speed, direction, and temperature data to inform your shot decisions (requires API key).
+*   **Total Data Portability:** Export your entire database (bags, throws, courses, rounds) as CSV, JSON, or a full encrypted SQLite binary backup. Never lose your data.
+*   **Haptic Feedback:** Tactile native device feedback for critical UI interactions, providing a premium app feel.
+*   **Native Dark Mode:** A sleek, high-contrast dark-mode interface meticulously designed for maximum visibility in bright sunlight on the course.
+*   **100% Offline Capable:** Built on Capacitor and SQLite (`capacitor-sqlite`), all your data lives on your device. Zero cell service required on remote courses.
+
+## 🛠️ Technology Stack
+*   **Framework:** Next.js 16 (App Router, Static Export)
+*   **Native Bridge:** Capacitor 8
+*   **Database:** SQLite (`capacitor-community/sqlite` & `sql.js` for web fallback)
+*   **Styling:** TailwindCSS with custom CSS variables for precise theming
+*   **Icons:** Lucide React
+
+## 📱 Build & Deployment
+
+### Local Development
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Android APK Build
+```bash
+# Build the static Next.js export
+npm run build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Sync assets to the native Android project
+npx cap sync android
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Build the release APK via Gradle
+cd android
+./gradlew assembleRelease
+```
+The compiled APK will be located at `android/app/build/outputs/apk/release/app-release.apk`.
