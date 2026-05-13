@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Bag Tracker</string>
+    <string name="title_activity_main">Bag Tracker</string>
+    <string name="package_name">com.discit.bagtracker</string>
+    <string name="custom_url_scheme">com.discit.bagtracker</string>
+</resources>

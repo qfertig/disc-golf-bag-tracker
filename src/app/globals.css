@@ -1,0 +1,283 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #7c6ff7;
+  --primary-tonal: rgba(124, 111, 247, 0.15);
+  --primary-hover: #9186f9;
+  --primary-pressed: #6359d4;
+  --on-primary: #ffffff;
+
+  --surface-0: #0b0c10;
+  --surface-1: #111318;
+  --surface-2: #181b23;
+  --surface-3: #1f2330;
+
+  --text-primary: #eef0f6;
+  --text-muted: #8b93a8;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-active: rgba(124, 111, 247, 0.35);
+  --surface-highlight: rgba(255, 255, 255, 0.03);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 24px rgba(124, 111, 247, 0.15);
+
+  --radius-card: 24px;
+  --radius-chip: 9999px;
+  --radius-btn: 9999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+
+  --lh-heading: 1.2;
+  --lh-body: 1.5;
+
+  --chip-very-overstable-bg: rgba(239, 68, 68, 0.15);
+  --chip-very-overstable-fg: #f87171;
+  --chip-overstable-bg: rgba(251, 146, 60, 0.15);
+  --chip-overstable-fg: #fb923c;
+  --chip-understable-bg: rgba(34, 211, 238, 0.15);
+  --chip-understable-fg: #22d3ee;
+  --chip-very-understable-bg: rgba(52, 211, 153, 0.15);
+  --chip-very-understable-fg: #34d399;
+  --danger-bg: rgba(239, 68, 68, 0.15);
+  --danger-fg: #f87171;
+  --success-bg: rgba(34, 197, 94, 0.18);
+  --success-fg: #ffffff;
+  --scrim: rgba(0, 0, 0, 0.65);
+  --chart-line: #2b6478;
+
+  /* ── Bottom Navigation Island Safe Area Tokens ── */
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --nav-island-height: 64px;
+  --nav-island-margin: 24px;
+  --nav-island-total: calc(var(--nav-island-height) + var(--nav-island-margin) + var(--safe-bottom));
+  /* A safe padding to apply to scrollable containers or absolute elements */
+  /* Increased to ensure expanded content can always scroll above the island */
+  --bottom-safe-padding: calc(var(--nav-island-total) + 32px);
+}
+
+html {
+  background-color: var(--surface-0);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+  line-height: var(--lh-body);
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--radius-chip); }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.fade-edge-right {
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeSlideUp 0.22s ease-out both; }
+
+.wordmark {
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: var(--lh-heading);
+}
+
+.app-subtitle {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+}
+
+.card {
+  background: var(--surface-1);
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: box-shadow 0.2s, background 0.2s, border-color 0.2s;
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.disc-name {
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--lh-heading);
+}
+
+.disc-maker {
+  color: var(--text-muted);
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.section-heading {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tonal-chip,
+.stability-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 2px 8px;
+  border-radius: var(--radius-chip);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.tonal-chip {
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+
+.stability-chip.neutral {
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+.stability-chip.overstable {
+  background: var(--chip-overstable-bg);
+  color: var(--chip-overstable-fg);
+}
+.stability-chip.very-overstable {
+  background: var(--chip-very-overstable-bg);
+  color: var(--chip-very-overstable-fg);
+}
+.stability-chip.understable {
+  background: var(--chip-understable-bg);
+  color: var(--chip-understable-fg);
+}
+.stability-chip.very-understable {
+  background: var(--chip-very-understable-bg);
+  color: var(--chip-very-understable-fg);
+}
+
+.flight-number-strip {
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  background: var(--surface-3);
+  box-shadow: inset 0 1px 0 var(--surface-highlight);
+}
+
+.flight-number-strip.compact {
+  padding: var(--space-1) var(--space-2);
+}
+
+.flight-number-item {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-1);
+  white-space: nowrap;
+}
+
+.flight-number-item:not(:last-child)::after {
+  content: "/";
+  color: var(--text-muted);
+  font-size: var(--text-base);
+  margin-left: var(--space-1);
+  opacity: 0.4;
+}
+
+.flight-number-label {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.flight-number-value {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.flight-number-strip.compact .flight-number-value {
+  font-size: 0.7rem;
+}
+
+
+
+.flight-chart-panel {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-sm);
+}
+
+.modal-scrim {
+  background: var(--scrim);
+}
+
+.primary-action {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.primary-action.success {
+  background: var(--success-bg);
+  color: var(--success-fg);
+}
+
+.danger-action:hover {
+  background: var(--danger-bg);
+  color: var(--danger-fg);
+}
+
+

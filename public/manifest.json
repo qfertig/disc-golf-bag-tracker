@@ -1,0 +1,16 @@
+{
+  "name": "BagTracker — Disc Golf",
+  "short_name": "BagTracker",
+  "description": "Track your disc golf bag offline. Search discs, visualize flight paths, keep score.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0c10",
+  "theme_color": "#7c6ff7",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
